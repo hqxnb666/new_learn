@@ -170,5 +170,6 @@ void operator delete(void* ptr) noexcept
 //但是我有疑问 正常的new不是会根据传递进来的类型来调用对应的构造函数吗？如果全局重载了 operator new/delete，是否会影响到类的构造和析构函数的调用？而且返回的指针类型是 void*，不是应该根据传递进来的类型来返回对应类型的指针吗？
 int main()
 {
+	yes
 	return 0;
 }
