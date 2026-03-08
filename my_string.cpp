@@ -30,3 +30,61 @@
 		MyString temp(str._str);
 		swap(temp);
 	}
+	size_t MyString::size() const
+	{
+		return _size;
+	}
+	size_t MyString::capacity() const
+	{
+		return _capacity;
+	}
+	bool  MyString::empty() const
+	{
+		return _size == 0;
+	}
+	const char* MyString::c_str() const
+	{
+		return _str;
+	}
+	MyString::iterator MyString::begin()
+	{
+		return _str;
+	}
+	MyString::iterator MyString::end()
+	{
+		return _str + _size;
+	}
+	MyString::const_iterator MyString::begin() const
+	{
+		return _str;
+	}
+	MyString::const_iterator MyString::end() const
+	{
+		return _str + _size;
+	}
+	void MyString::reserve(size_t n)
+	{
+		if (n > _capacity) {
+			char* temp = new char[n + 1];
+			strcpy_s(temp, n + 1, _str);
+			delete[] _str;
+			_str = temp;
+			_capacity = n;
+		}
+	}
+	void MyString::resize(size_t n, char ch )
+	{
+		if (n <= _size) {
+			_str[n] = '\0';
+			_size = n;
+		}
+		else {
+			MyString::reserve(n);
+			for (size_t i = _size; i < n; i++)
+			{
+				_str[i] = ch;
+			}
+			_str[n] = '\0';
+			_size = n;
+		}
+	}
