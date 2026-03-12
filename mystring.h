@@ -23,6 +23,14 @@ public:
 	const_iterator end() const;
 	void reserve(size_t n);
 	void resize(size_t n, char ch = '\0');
+	char& operator[](size_t pos);
+	const char& operator[](size_t pos) const;
+
+	void push_back(char ch);
+	void append(const char* str);
+
+	MyString& operator+=(char ch);
+	MyString& operator+=(const char* str);
 private:
 	char* _str = nullptr;
 	size_t _size = 0;
